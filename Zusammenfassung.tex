@@ -1,15 +1,20 @@
 % Document information
-\newcommand{\titleinfo}{Zusammenfassung Template}
-\newcommand{\authorinfo}{Name Nachname}
+\newcommand{\titleinfo}{Zusammenfassung SigSys2}
+\newcommand{\authorinfo}{Sandro Pedrett}
 \newcommand{\version}{1.0}
-\newcommand{\versioninfo}{FS21}
+\newcommand{\versioninfo}{FS22}
 % Header
 \include{Template/Header}
+
+\newcommand{\script}[1]{\verweisextern{script}{#1}}
 
 % Document
 \begin{document}
 
-\tableofcontents
-\input{Sections/First Section}
+\input{Sections/Frequenzverhalten}
+\input{Sections/State-Space}
+\input{Sections/Filter}
+\input{Sections/Anhang}
+\input{Sections/Idiotenseite}
 
 \end{document}
