@@ -140,8 +140,16 @@ Wobei $\omega_r$ die Mittelfrequenz $\omega_r = \sqrt{\omega_{B2}\cdot \omega_{B
 
 
 \subsection{LC-Netzwerke}
-L und C Netzwerke haben geringste Bauteiltoleranzen. Die Struktur unterscheidet sich nicht zwischen den Filtertypen
-
+L und C Netzwerke haben geringste Bauteiltoleranzen. Die Struktur unterscheidet sich nicht zwischen den \textbf{Allpolfiltern}. Fpr Cauer Filter siehe \script{415}
 \begin{center}
 	\includegraphics[width=\columnwidth]{Images/struktur}
 \end{center}
+
+Die Bauteilgrössen können in der Tabelle 7.29 auf \script{410} ff. entnommen werden. Diese müssen noch \textbf{entnormiert} werden. Wobei $L_{FI}$ und $ C_{FI}$ aus der Tabelle genommen wurden.
+\[
+L = L_I R_r = \frac{L_{FI}}{\omega_r}R_r \qquad C = \frac{C_I}{R_r} = \frac{C_{FI}}{\omega_rR_r}
+\]
+Die Innenwiderstand und Lastwiderstand werden folgendermassen entnormiert:
+\[
+R_1 = R_{1I}\cdot R_r \qquad R_2 = R_{2I}\cdot R_r 
+\]

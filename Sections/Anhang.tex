@@ -128,7 +128,7 @@
 		für $|q_z| > 1/2$ (HP 2.Ord)&
 		$s^2+s\frac{\omega_z}{q_z}+\omega_z^2$ &
 		\multicolumn{4}{l|}{
-\textbf{			TODO Beispiel. }Analog zu den Konjugiert-komplexen Polen jedoch gespiegelt an der $0dB$- / $0$-Grad-Linie.
+			Analog zu den Konjugiert-komplexen Polen jedoch gespiegelt an der $0dB$- / $0$-Grad-Linie.
   		}
 		\\
 		&
@@ -146,3 +146,31 @@
 \end{landscape}
 \clearpage
 \twocolumn
+
+\subsection{PN und Bode von UTF}\label{pn}
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{Images/tiefpass}\\
+	\includegraphics[width=0.8\columnwidth]{Images/bandpass}\\
+	\includegraphics[width=0.8\columnwidth]{Images/hochpass}\\
+	\includegraphics[width=0.8\columnwidth]{Images/tiefpass_en}\\
+	\includegraphics[width=0.8\columnwidth]{Images/frn}\\
+	\includegraphics[width=0.8\columnwidth]{Images/fen}\\
+\end{center}
+
+\subsection{Filter Übersicht}
+\begin{center}
+	\rotatebox{90}{
+		\bgroup
+		\def\arraystretch{2.5}
+\begin{tabular}{r|c|c|c|c|c|c}
+	& \textbf{Krit. gedämpft}           & \textbf{Butterworth}                     & \textbf{Chebyshev 1}          & \textbf{Chebyshev 2}            & \textbf{Cauer}    & \textbf{6}         \\\hline
+	\textbf{Allpolfilter} & Ja                       & Ja                              & Ja                   & Nein                   & Nein     & Ja             \\\hline
+	\textbf{Pollage}      & reelle Achse \textless 0 & Halbkreis LHE                   & Ellipse LHE          & LHE                    & LHE      & exentr. Kreis  \\\hline
+	\textbf{NS-Lage }     & -                        & -                               & -                    & jw-Achse               & jw-Achse & -              \\\hline
+	\textbf{DB}           & streng monoton           & streng monoton (steilstmöglich) & Wellig, konst Rippel & Streng monoton         & wellig   & streng monoton \\\hline
+	\textbf{SB}           & Streng monoton           & string monoton                  & Streng monoton       & Weillig, konst. Rippel & wellig   & Streng monoton \\\hline
+	\textbf{Phasengang}   & sehr gut                 & mittel                          & schlecht             & schlecht               & wild     & best möglich          
+\end{tabular}
+	\egroup
+}
+\end{center}
