@@ -69,7 +69,9 @@
 
 \subsection{LinAlg}
 \subsubsection{Diagonalisieren}\label{charakteristischempolynom}
-Diagonalmatrix $D=TAT^{-1}$ von Matrix $A$ besteht aus Transformationsmatrix $T$, wobei $T$ die Eigenbasis $T = \{\vec{v}_1,\dots\vec{v}_n\}$ ist.
+Diagonalmatrix $A = TAT^{-1}$ von Matrix $A$ besteht aus Transformationsmatrix $T$, wobei $T$ die Eigenbasis $T = \begin{pmatrix}
+	\vec{v}_1 & \dots  &\vec{v}_n
+\end{pmatrix}$ ist.
 \[D = \begin{pmatrix}
 	\lambda_1 & \dots & 0 \\
 	\vdots & \ddots & \vdots \\
@@ -81,15 +83,42 @@ $A = \begin{pmatrix} -2 & 7 \\ -1 & 6 \end{pmatrix}$
 \\ \\
 \noindent \textbf{Eigenwert} $\lambda_n$ mit $\det(A - \textcolor{red}{\lambda} E) = 0$:
 \[\det\begin{pmatrix}
-	-2 - \lambda & -7 \\
-	1 & 6 - \lambda
+	-2 - \lambda & 7 \\
+	-1 & 6 - \lambda
 \end{pmatrix} \Rightarrow \lambda^2 - 4\lambda - 5 = 0\]
-\[{\scriptstyle \lambda_1 = 5; \lambda_2 = -1}\]
-~\\
+\[{\scriptstyle \lambda_1 = -1; \lambda_2 = 5}\]
+\noindent \textbf{Eigenvektoren} $\vec{v}_n$ bestimmen durch einsetzen von $\lambda_n$ in Char.Polynom und lösen von $(A - \lambda_n E)\vec{v} = 0$. \textbf{Achtung:} $\lambda$ von klein nach gross sortieren!
+\begin{align*}
+	\lambda_1 := \begin{pmatrix}
+		-2 +1 & 7 \\
+		-1 & 6 +1
+	\end{pmatrix}\vec{v} &= \vec{0} &\xRightarrow{\text{Gauss}} \begin{pmatrix}
+	 v_{1} = 7v_{2} \\
+	 v_2 = v_2
+\end{pmatrix}  = \begin{pmatrix}
+	7 \\1 
+\end{pmatrix}\\
+ 	\lambda_2 := \begin{pmatrix}
+		-2 - 5 & 7 \\
+		-1 & 6 - 5
+	\end{pmatrix}\vec{v} &= \vec{0} &\xRightarrow{\text{Gauss}} \begin{pmatrix}
+	v_{1} = v_{2} \\
+	v_2 = v_2
+\end{pmatrix}= \begin{pmatrix}
+1 \\1 
+\end{pmatrix}
+\end{align*}
+Mit beliebigem $\vec{v}_n$ wird nun die Transpornierte Matrix $T$ bestummen:
+\[
+T = \begin{pmatrix}
+	\overbrace{7}^{\vec{v}_1} & \overbrace{1}^{\vec{v}_2} \\
+	1 & 1
+\end{pmatrix} \qquad T^{-1}=\frac{1}{6}\begin{pmatrix}
+1 & -1 \\ -1 & 7
+\end{pmatrix}
+\]
 
-\noindent \textbf{Eigenwert} $\vec{v}_n$ bestimmen durch einsetzen von $\lambda$ in Char.Polynom und lösen von $(A - \textcolor{red}{\lambda}_n E)\vec{v}_n = 0$ mit einfachem $v$ 
-
-\todo{LinAlg}
+Damit gilt $A = TDT^{-1}$
 
 \subsection{Inverse Matrix}\label{inversematrix}
 Matrix $A$ ist genau dann invertierbar, wenn $\det(A) \neq 0$. 
@@ -135,7 +164,7 @@ Spezial-Fall (3x3):
 	-\underbrace{\left|\begin{array}{rr} a & b \\ g & h \\ \end{array}\right|}_{det(A_{23})} &
 	+\underbrace{\left|\begin{array}{rr} a & b \\ d & e \\ \end{array}\right|}_{det(A_{33})} \\
 \end{pmatrix}\]
-
+\clearpage
 \subsection{PN und Bode von UTF}\label{pn}
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{Images/tiefpass}\\

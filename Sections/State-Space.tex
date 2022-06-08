@@ -80,7 +80,7 @@ Für ZRD von UTF siehe auch \script{267}.
 
 
 \subsection{Äquivalenz}
-Um eine neue Zustandmatrix $\xi(t)$ zu erhalten, kann diese vom Ursprung Transformiert werden mit Transformationmatrix $T$.
+\script{257} Um eine neue Zustandmatrix $\xi(t)$ zu erhalten, kann diese vom Ursprung Transformiert werden mit Transformationmatrix $T$. 
 \begin{align*}
 	\dot{\xi}(t) &= \overbrace{\mathbf{TAT^{-1}}}^{\hat{A}} \xi(t) + \overbrace{\mathbf{TB}}^{\hat{B}} u(t)\\
 	y(t) &= \overbrace{\mathbf{CT^{-1}}}^{\hat{C}}\xi(t) + \overbrace{\mathbf{D}}^{\hat{D}}u(t)
@@ -137,19 +137,19 @@ Substitution mit $\mathbf{A} = \begin{pmatrix}
 \textbf{Tip:} Folgender Ausdruck wird oft verwendet: $e^{\mathbf{A}t} = \sum\limits_{k=0}^{\infty}\frac{\mathbf{A}^kt^k}{k!}$
 
 \subsection{Stabilität}
-Die Eigenwerte von Systemmatrix $\mathbf{A}$ entsprechen den Polstellen des Systems. Ein LTI-System ist asymptotisch stabil, wenn alle Eigenwerte einen negativen Realanteil besitzen. Umgekehrt gilt diese Aussage nicht. In der \textbf{diagonalisierten Normalform} (Siehe dazu Kapitel \ref{diag}) können die Eigenwerte direkt ausgelesen werden.
+Die Eigenwerte von Systemmatrix $\mathbf{A}$ entsprechen den Polstellen des Systems. Ein LTI-System ist asymptotisch stabil, wenn alle Eigenwerte einen negativen Realanteil besitzen. Umgekehrt gilt diese Aussage nicht. In der \textbf{diagonalisierten Normalform} (Siehe dazu Kapitel \ref{diag}) können die Eigenwerte direkt ausgelesen werden. \script{275}
 
 \subsection{Normalformen}
-Wenn ein System entweder als UTF oder DGL vorhanden ist, lässt sich eine Matrix direkt übertragen:
+Wenn ein System entweder als UTF oder DGL vorhanden ist, lässt sich eine Matrix direkt übertragen \script{271}:
 \[
-H(s) = \frac{b_{m}s^{m} + \dots b_1s + b_0}{s^n + a_{n-1}s^{n-1} + \dots a_1s + a_0}
+\frac{b_{m}s^{m} + \dots b_1s + b_0}{s^n + a_{n-1}s^{n-1} + \dots a_1s + a_0} \xRightarrow[]{PBZ} b_n + \frac{\alpha_1}{s - p_1} + \dots + \frac{\alpha_n}{s - p_n}
 \]
-oder \[
+oder als DGL \[
 a_ny^{(n)}(t) + \dots + a_1\dot{y}(t) + a_0y(t) = b_mu^{(m)}(t) + \dots + b_1\dot{u}(t) + b_0u(t)
 \]
 
 \subsubsection{Regelungsnormalform}
-\script{267}:
+Diese Form ist geeignet um eine allgemeine UTF in eine ZRD zu konvertieren \script{267}:
 \begin{align*}
  \begin{pmatrix}  \dot{x}_1 \\ 	\dot{x}_2 \\ \vdots \\ \dot{x}_n \\ \end{pmatrix}
  &=
@@ -163,17 +163,34 @@ a_ny^{(n)}(t) + \dots + a_1\dot{y}(t) + a_0y(t) = b_mu^{(m)}(t) + \dots + b_1\do
 \begin{pmatrix}  0 \\ 0 \\ \vdots \\1 \\ \end{pmatrix}
 \\
 y(t) &= \begin{pmatrix}
-	b_0-a_0b_n & b_1 - a_1b_n & \dots & b_{n-1}-a_{n-1}b_n
+	b_0-a_0b_n & \dots & b_{n-1}-a_{n-1}b_n
 \end{pmatrix}\cdot
 \begin{pmatrix}  {x}_1 \\ 	{x}_2 \\ \vdots\\ {x}_n \\ \end{pmatrix}
 + {b_n}\cdot u(t)
 \end{align*}
-Weil $m<n$ meist ist, vereinfacht sich $b_n = 0$
+\textbf{Hinweis}: Wenn $m<n$ ist, vereinfacht sich $b_n = 0$
 
 \subsubsection{Diagonalform}\label{diag}
-Diese Form eignet sich besonders um die Stabilität eines Systems zu beurteilen.
-\todo{}
-Die Polstellen der UTF (Tip: Partialbruchzerlegung) entsprechen den Eigenwerten des Systems, welche auf der Diagonalmatrix liegen.
+Diese Form eignet sich besonders um die Stabilität eines Systems zu beurteilen. \script{271}
+\begin{align*}
+	\begin{pmatrix}  \dot{x}_1 \\ 	\dot{x}_2 \\ \vdots \\ \dot{x}_n \\ \end{pmatrix}
+	&=
+	\begin{pmatrix}
+		p_1 & 0 & 0 & \dots & 0\\
+		0 & p_2 & 0 & \dots & 0\\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & p_{n}
+	\end{pmatrix}\cdot
+	\begin{pmatrix}  {x}_1 \\ 	{x}_2 \\ \vdots\\ {x}_n \\ \end{pmatrix} +
+	\begin{pmatrix}  1 \\ 1 \\ \vdots \\1 \\ \end{pmatrix}
+	\\
+	y(t) &= \begin{pmatrix}
+		\alpha_1 & \dots & \alpha_n
+	\end{pmatrix}\cdot
+	\begin{pmatrix}  {x}_1 \\ 	{x}_2 \\ \vdots\\ {x}_n \\ \end{pmatrix}
+	+ {b_n}\cdot u(t)
+\end{align*}
+Die Polstellen der UTF (Tip: Partialbruchzerlegung) entsprechen den Eigenwerten des Systems, welche auf der Diagonalmatrix liegen. Mitdiesen kann die Stabilität direkt bestummen werden.
 
 \subsubsection{Beobachtbarkeit}
 Eine \textbf{beobachtbares} System heisst dabei, dass sich ein Zustand $x$ durch messen des Ausgangssignal $y$ bestimmen lässt. Die Form ist dual zur Reglungsnormalform \script{277}.
